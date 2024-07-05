@@ -1,4 +1,5 @@
 import { createIconsArray, duplicateArray, shuffle } from './utils.js';
+import { createGameCard } from './gameCard.js';
 
 export const startGame = (difficult) => {
   let firstCard  = null;
@@ -18,4 +19,8 @@ export const startGame = (difficult) => {
   restartBtn.classList.add('restart-btn');
 
   shuffle(duplicatedCardsIcons);
+
+  duplicatedCardsIcons.forEach(icon => gameTable.append(createGameCard('question-circle', icon)));
+
+  gameSection.append(gameTable, restartBtn);
 };
